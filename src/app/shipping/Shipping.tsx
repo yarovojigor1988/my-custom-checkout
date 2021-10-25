@@ -165,12 +165,7 @@ class Shipping extends Component<ShippingProps & WithCheckoutShippingProps, Ship
         } = this.props;
 
         let sBrowser, sUsrAg = navigator.userAgent;
-
-        console.log(sBrowser);
-
-        console.log(navigator.userAgent);
-        
-
+       
         if (sUsrAg.indexOf("Firefox") > -1) {
             sBrowser = "Mozilla Firefox";
             //"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:61.0) Gecko/20100101 Firefox/61.0"
@@ -192,19 +187,8 @@ class Shipping extends Component<ShippingProps & WithCheckoutShippingProps, Ship
             sBrowser = "unknown";
         }
 
-        console.log("sBrowser");
-        console.log(sBrowser);
-
-
-        console.log(addressValues?.customFields.field_35);
-        console.log("addressValues?.customFields");
-        console.log(addressValues?.customFields);
-
-
         if (addressValues?.customFields.field_35) addressValues.customFields.field_35 = sBrowser;
 
-        console.log(addressValues?.customFields);
-        
         const updatedShippingAddress = addressValues && mapAddressFromFormValues(addressValues);
         const promises: Array<Promise<CheckoutSelectors>> = [];
         const hasRemoteBilling = this.hasRemoteBilling(methodId);
@@ -265,7 +249,6 @@ class Shipping extends Component<ShippingProps & WithCheckoutShippingProps, Ship
             navigateNextStep,
             onUnhandledError,
         } = this.props;
-        console.log("444444444444");
 
 
         try {
