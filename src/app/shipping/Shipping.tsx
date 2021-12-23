@@ -15,6 +15,7 @@ import { MultiShippingFormValues } from './MultiShippingForm';
 import ShippingForm from './ShippingForm';
 import ShippingHeader from './ShippingHeader';
 import { SingleShippingFormValues } from './SingleShippingForm';
+import { browserName } from 'react-device-detect';
 
 export interface ShippingProps {
     isBillingSameAsShipping: boolean;
@@ -164,6 +165,7 @@ class Shipping extends Component<ShippingProps & WithCheckoutShippingProps, Ship
             methodId,
         } = this.props;
 
+        if (addressValues?.customFields?.field_35) {addressValues.customFields.field_35 = browserName;}
 
         const updatedShippingAddress = addressValues && mapAddressFromFormValues(addressValues);
         const promises: Array<Promise<CheckoutSelectors>> = [];
